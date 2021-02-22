@@ -1,0 +1,190 @@
+$spanfontColor: #ddd;
+$spanbgColor: #333B;
+$borderColor: #333;
+$divbgColor: #7b027b;
+
+@mixin animDiv {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("../images/spikes.webp");
+    >header {
+        display: flex;
+        margin: 1rem 10%;
+        justify-content: center;
+        border-radius: 20px;
+    }
+    >header:hover {
+        color: $spanfontColor;
+        background-color: $spanbgColor;
+        transition: all 1s linear;
+    }
+}
+
+main {
+    margin: 0px 10%;
+    nav {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            margin: 0px;
+            overflow: hidden;
+            border: 1px solid $borderColor;
+            border-left: none;
+            width: 100%;
+        }
+        div {
+            padding: 1rem;
+            border: 1px solid $borderColor;
+            background-color: $borderColor;
+            color: #ddd;
+            cursor: pointer;
+        }
+    }
+    section {
+        border: 1px solid $borderColor;
+        padding: 0 1rem 1rem;
+        header {
+            display: flex;
+            justify-content: center;
+        }
+        article {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+            >div {
+                height: 200px;
+                width: 200px;
+                border: 1px solid $borderColor;
+            }
+            #anim1 {
+                background-color: $divbgColor;
+                >div {
+                    @include animDiv();
+                    background-image: url(../images/teresitas.jpg);
+                    background-size: cover;
+                    transition: all 1s ease;
+                    transform: scale(0.8);
+                }
+                >div:hover {
+                    transition: all 1s ease;
+                    transform: scale(1);
+                }
+            }
+            #anim2 {
+                padding: 1rem;
+                background-color: $divbgColor;
+                >div {
+                    @include animDiv();
+                    background-image: url(../images/santacruz.jpg);
+                    background-size: cover;
+                    transition: all 1s linear;
+                }
+            }
+            #anim2:hover {
+                >div {
+                    animation: rotateZ 2s infinite;
+                    border-radius: 50%;
+                }
+            }
+            #anim3 {
+                position: relative;
+                background-image: url(../images/kayak.jpeg);
+                background-size: cover;
+                span {
+                    position: absolute;
+                    background-color: $spanbgColor;
+                    color: #ddd;
+                    font-size: 20px;
+                    text-align: center;
+                    height: 80px;
+                    line-height: 80px;
+                    width: 100%;
+                    opacity: 0;
+                    transition: all 1s linear;
+                }
+            }
+            #anim3:hover {
+                span {
+                    transition: all 1s linear;
+                    opacity: 1;
+                }
+            }
+            #anim4 {
+                position: relative;
+                background-image: url(../images/buceo.jpg);
+                background-size: cover;
+                span {
+                    position: absolute;
+                    background-color: $spanbgColor;
+                    color: #ddd;
+                    font-size: 20px;
+                    text-align: center;
+                    height: 80px;
+                    line-height: 80px;
+                    width: 100%;
+                    transition: all 1s linear;
+                    transform: scale(0);
+                }
+            }
+            #anim4:hover {
+                span {
+                    transition: all 1s linear;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+
+.menuOpened {
+    /* Completar */
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    margin: 0px;
+    overflow: hidden;
+    border: 1px solid $borderColor;
+    border-left: none;
+    width: 100%;
+    transition: all 1s linear;
+
+}
+
+.menuClosed {
+    /* Completar */
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    border: 1px solid $borderColor;
+    border-left: none;
+    width: 0%;
+    transition: all 1s linear;
+    padding: 1rem 0 1rem 0;
+}
+
+@keyframes rotateZ {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
